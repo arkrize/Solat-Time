@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SolatTime</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            🕌 SolatTime
+        </div>
+
+        <nav>
+            <button class="nav-btn active" data-page="dashboard">
+                Prayer Times
+            </button>
+
+            <button class="nav-btn" data-page="reminders">
+                Activity Reminders
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- PAGE 1: PRAYER TIMES DASHBOARD -->
+
+        <section id="dashboard" class="page active">
+
+            <div class="welcome">
+                <h1>Assalamualaikum!</h1>
+                <p>Welcome to your daily prayer companion.</p>
+            </div>
+
+            <div class="date-card">
+                <h2>Today's Prayer Schedule</h2>
+                <p id="currentDate"></p>
+
+                <div class="location">
+                    <label for="city">Select Location:</label>
+
+                    <select id="city">
+                        <option value="Johor Bahru">
+                            Johor Bahru
+                        </option>
+
+                        <option value="Kuala Lumpur">
+                            Kuala Lumpur
+                        </option>
+
+                        <option value="Kota Bharu">
+                            Kota Bharu
+                        </option>
+
+                        <option value="Kuantan">
+                            Kuantan
+                        </option>
+
+                        <option value="George Town">
+                            George Town
+                        </option>
+
+                        <option value="Ipoh">
+                            Ipoh
+                        </option>
+
+                        <option value="Melaka City">
+                            Melaka City
+                        </option>
+
+                        <option value="Seremban">
+                            Seremban
+                        </option>
+
+                        <option value="Alor Setar">
+                            Alor Setar
+                        </option>
+
+                        <option value="Kangar">
+                            Kangar
+                        </option>
+
+                        <option value="Kota Kinabalu">
+                            Kota Kinabalu
+                        </option>
+
+                        <option value="Kuching">
+                            Kuching
+                        </option>
+
+                        <option value="Shah Alam">
+                            Shah Alam
+                        </option>
+
+                        <option value="Putrajaya ">
+                            Putrajaya
+                        </option>
+
+                        <option value="Kuala Terengganu">
+                            Kuala Terengganu
+                        </option>
+
+                    </select>
+
+                    <button id="searchPrayer">
+                        Get Prayer Times
+                    </button>
+                </div>
+                <p id="apiMessage"></p>
+            </div>
+
+            <div class="prayer-container">
+
+                <div class="prayer-card">
+                    <h3>Subuh</h3>
+                    <p id="subuh">--:--</p>
+                </div>
+
+                <div class="prayer-card">
+                    <h3>Zohor</h3>
+                    <p id="zohor">--:--</p>
+                </div>
+
+                <div class="prayer-card">
+                    <h3>Asar</h3>
+                    <p id="asar">--:--</p>
+                </div>
+
+                <div class="prayer-card">
+                    <h3>Maghrib</h3>
+                    <p id="maghrib">--:--</p>
+                </div>
+
+                <div class="prayer-card">
+                    <h3>Isyak</h3>
+                    <p id="isyak">--:--</p>
+                </div>
+
+            </div>
+
+            <div class="suggestion-card">
+                <h2>Daily Religious Activity</h2>
+
+                <p id="suggestion">
+                    Your religious activity suggestion will
+                    appear here.
+                </p>
+            </div>
+
+            <!-- NEXT PRAYER COUNTDOWN -->
+            <div class="countdown-card">
+                <h3>Next Prayer</h3>
+                <p id="nextPrayer">Waiting for prayer times...</p>
+                <p id="countdown">--:--:--</p>
+            </div>
+
+        </section>
+
+
+      <!-- PAGE 2: ACTIVITY REMINDERS -->
+      <section id="reminders" class="page">
+        <form id="reminderForm">
+
+            <!-- Hidden ID for editing reminders -->
+            <input type="hidden" id="reminderId">
+
+            <h3>Add Your Activity</h3>
+
+            <label for="activityName">Activity Name</label>
+            <input
+                type="text"
+                id="activityName"
+                placeholder="Example: Read Quran"
+                required
+            >
+
+            <label for="activityDate">Date</label>
+            <input
+                type="date"
+                id="activityDate"
+                required
+            >
+
+            <label for="activityTime">Time</label>
+            <input
+                type="time"
+                id="activityTime"
+                required
+            >
+
+            <button type="submit" class="submit-btn" id="saveBtn">
+               Add Reminder
+            </button>
+
+            <button type="button" id="cancelEdit" style="display:none;">
+                Cancel Edit
+            </button>
+        </form>
+
+        <h3>My Saved Activities</h3>
+
+        <ul id="reminderList"></ul>
+        
+
+      </section>
+
+    </main>
+
+    <footer>
+        <p>SolatTime © 2026 | Your Daily Prayer Companion</p>
+    </footer>
+
+<script src="renderer.js"></script>
+
+</body>
+
+</html>
